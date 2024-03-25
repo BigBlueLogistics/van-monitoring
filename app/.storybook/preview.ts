@@ -15,16 +15,6 @@ import '@fontsource/roboto/700.css';
 import '@fontsource/material-icons';
 
 const preview: Preview = {
-  parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
-    controls: {
-      matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/,
-      },
-    },
-  },
-
   decorators: [
     (Story) => {
       return React.createElement(MaterialUIControllerProvider, {
