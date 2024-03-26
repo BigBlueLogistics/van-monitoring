@@ -1,5 +1,5 @@
-import { opt as optTheme } from '@/organisms/ThemeRegistry/theme';
-import { opt as optThemeDark } from '@/organisms/ThemeRegistry/theme-dark';
+import { opt as optTheme } from '@/components/organisms/ThemeRegistry/theme';
+import { opt as optThemeDark } from '@/components/organisms/ThemeRegistry/theme-dark';
 import { TTheme } from './theme';
 
 export type TMaterialElem = {
