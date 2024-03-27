@@ -15,8 +15,8 @@ const config: StorybookConfig = {
     // Add path aliases
     if (config.resolve?.alias) {
       config.resolve.alias['@'] = path.resolve(__dirname, '../src');
-      config.resolve.alias['@/atoms'] = path.resolve(__dirname, '../src/atoms');
-      config.resolve.alias['@/organisms'] = path.resolve(__dirname, '../src/organisms');
+      config.resolve.alias['@/atoms'] = path.resolve(__dirname, '../src/components/atoms');
+      config.resolve.alias['@/organisms'] = path.resolve(__dirname, '../src/components/organisms');
     }
 
     return config;

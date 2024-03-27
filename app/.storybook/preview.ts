@@ -4,8 +4,8 @@ import type { Preview } from '@storybook/react';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { withThemeFromJSXProvider } from '@storybook/addon-styling';
 
-import theme from '../src/organisms/ThemeRegistry/theme';
-import themeDark from '../src/organisms/ThemeRegistry/theme-dark';
+import theme from '../src/components/organisms/ThemeRegistry/theme';
+import themeDark from '../src/components/organisms/ThemeRegistry/theme-dark';
 import { MaterialUIControllerProvider } from '../src/context';
 
 import '@fontsource/roboto/300.css';

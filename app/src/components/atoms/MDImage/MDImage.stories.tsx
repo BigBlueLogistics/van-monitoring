@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import MDImage from './index';
-import logo from '../../assets/images/logo-bblc.png';
+import logo from '../../../assets/images/logo-bblc.png';
 
 const meta = {
   title: 'atoms/MDImage',

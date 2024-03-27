@@ -85,9 +85,8 @@ export default styled(Box)<TOwnerState>(({ theme, ownerState }) => {
   let colorValue = color;
 
   if (validColors.find((el) => el === color)) {
-    colorValue = palette[color as keyof Palette]
-      ? // @ts-ignore
-        palette[bgColor as keyof Palette].main
+    colorValue = palette[bgColor as keyof Palette]?.main
+      ? palette[bgColor as keyof Palette].main
       : greyColors[color as keyof typeof greyColors];
   }
 
