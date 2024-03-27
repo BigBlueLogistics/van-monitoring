@@ -17,6 +17,7 @@ const config: StorybookConfig = {
       config.resolve.alias['@'] = path.resolve(__dirname, '../src');
       config.resolve.alias['@/atoms'] = path.resolve(__dirname, '../src/components/atoms');
       config.resolve.alias['@/organisms'] = path.resolve(__dirname, '../src/components/organisms');
+      config.resolve.alias['@/template'] = path.resolve(__dirname, '../src/components/template');
     }
 
     return config;
