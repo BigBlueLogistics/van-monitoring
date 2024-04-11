@@ -4,8 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Support\SapRfc;
-use App\Interfaces\IDashboard;
-use App\Repository\DashboardRepository;
+use App\Interfaces\IYardDocks;
+use App\Repository\YardDocksRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('sap-rfc', function() {
             return new SapRfc('prd','Local');
         });
-        $this->app->bind(IDashboard::class, DashboardRepository::class);
+        $this->app->bind(IYardDocks::class, YardDocksRepository::class);
     }
 
     /**

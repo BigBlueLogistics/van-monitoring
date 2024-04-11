@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'sqlite'),
+    'default' => env('DB_WMS_CONNECTION', 'wms'),
 
     /*
     |--------------------------------------------------------------------------
@@ -107,6 +107,22 @@ return [
             'prefix_indexes' => true,
             // 'encrypt' => env('DB_ENCRYPT', 'yes'),
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
+        ],
+
+        'wms' => [
+            'driver' => 'sqlsrv',
+            'url' => env('DATABASE_URL'),
+            'host' => env('DB_WMS_HOST', '192.168.5.139'),
+            'port' => env('DB_WMS_PORT', '8576'),
+            'database' => env('DB_WMS_DATABASE'),
+            'username' => env('DB_WMS_USERNAME'),
+            'password' => env('DB_WMS_PASSWORD'),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'options' => [
+                PDO::ATTR_CASE => PDO::CASE_LOWER,
+            ],
         ],
 
     ],

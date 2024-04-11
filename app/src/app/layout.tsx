@@ -3,6 +3,7 @@ import { Roboto } from 'next/font/google';
 import Providers from '@/redux/Providers';
 import { MaterialUIControllerProvider } from '@/context';
 import ThemeRegistry from '@/components/organisms/ThemeRegistry/ThemeRegistry';
+import '@/core/dependencies';
 
 const inter = Roboto({
   subsets: ['latin'],

@@ -1,14 +1,32 @@
 'use client';
 
-import MDTypography from '@/components/atoms/MDTypography';
-import DashboardLayout from '@/components/organisms/LayoutContainers/DashboardLayout';
+import Grid from '@mui/system/Unstable_Grid';
+import MDBox from '@/components/atoms/MDBox';
+import Status from './components/Status';
+import { TYardTemplate } from './types';
 
-function YardTemplate() {
+function YardTemplate({ data }: TYardTemplate) {
+  const { data: yardData, status } = data;
+
+  const renderStatus = () => {
+    const objYard = Object.entries(yardData ?? []);
+
+    return objYard?.map((item) => {
+      const title = item[1][0];
+      return (
+        <Grid key={title} xs={12} sm={4}>
+          <Status title={title} data={item[1][1]} status={status} />
+        </Grid>
+      );
+    });
+  };
+
   return (
-    <DashboardLayout>
-      <MDTypography>Yard page</MDTypography>
-    </DashboardLayout>
+    <MDBox p={3}>
+      <Grid container spacing={3}>
+        {renderStatus()}
+      </Grid>
+    </MDBox>
   );
 }
-
 export default YardTemplate;

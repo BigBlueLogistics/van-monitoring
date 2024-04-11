@@ -7,7 +7,7 @@ class AxiosInit {
   constructor() {
     const init = axios.create({
       baseURL: urls().apiUrl,
-      withCredentials: true,
+      // withCredentials: true,
       headers: {
         Accept: 'application/json',
       },
@@ -33,7 +33,7 @@ class AxiosInit {
   }
 
   public axios() {
-    const token = localStorage.getItem('apiToken');
+    const token = window.localStorage.getItem('apiToken');
 
     this.instance.defaults.headers.common.Authorization = `Bearer ${token}`;
     return this.instance;
