@@ -42,7 +42,7 @@ services:
     build:
       context: ./
       dockerfile: ./.docker/next/Dockerfile
-      target: app_dev
+      target: app_prod
     container_name: van_app_prd
     stdin_open: true
     tty: true

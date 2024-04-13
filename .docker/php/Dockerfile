@@ -8,7 +8,7 @@ RUN groupadd --gid 1000 bblc-data && \
 
 # Install selected packages and other stuff
 RUN apt-get update \
-  && apt-get install -y build-essential zlib1g-dev default-mysql-client curl gnupg procps vim git unzip libzip-dev libpq-dev
+  && apt-get install -y build-essential zlib1g-dev default-mysql-client curl gnupg procps vim git unzip libzip-dev libpq-dev apt-utils
 
 # php extension
 RUN docker-php-ext-install zip pdo_mysql
