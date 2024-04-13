@@ -23,7 +23,7 @@ const meta = {
 } satisfies Meta<typeof MDIcon>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof MDIcon>;
 
 export const Icon: Story = {
   render: (args) => <MDIcon {...args} />,

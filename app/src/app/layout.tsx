@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
 import Providers from '@/redux/Providers';
 import { MaterialUIControllerProvider } from '@/context';
+import { SWRProvider } from '@/components/molecules/SWRProvider';
 import ThemeRegistry from '@/components/organisms/ThemeRegistry/ThemeRegistry';
 import '@/core/dependencies';
 
@@ -11,8 +12,8 @@ const inter = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: 'BWMS',
-  description: 'BigBlue warehouse management system',
+  title: 'Van monitoring',
+  description: 'BigBlue cold storage warehouse',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -21,7 +22,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <Providers>
           <MaterialUIControllerProvider>
-            <ThemeRegistry>{children}</ThemeRegistry>
+            <ThemeRegistry>
+              <SWRProvider>{children}</SWRProvider>
+            </ThemeRegistry>
           </MaterialUIControllerProvider>
         </Providers>
       </body>

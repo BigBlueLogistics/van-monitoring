@@ -46,7 +46,7 @@ const meta = {
 } satisfies Meta<typeof MDPagination>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof MDPagination>;
 
 export const Pagination: Story = {
   render: (args) => <MDPagination {...args} />,

@@ -1,33 +1,29 @@
 'use client';
 
 import 'reflect-metadata';
-import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import YardTemplate from '@/components/template/YardTemplate';
+import useSWR from 'swr';
 import { container } from '@/core/dependencies';
 import TrucksVansUseCases from '@/core/usecases/truckVans';
+import Loading from '@/components/molecules/Loading';
+import YardTemplate from '@/components/template/YardTemplate';
 import initialData from './data';
 
 function Yard() {
   const { initialYardData } = initialData();
   const searchParams = useSearchParams().get('location');
 
-  const [yardData, setYardData] = useState(initialYardData);
   const useCases = container.resolve<TrucksVansUseCases>(TrucksVansUseCases);
+  const { data, isLoading } = useSWR(
+    'yard',
+    async () => await useCases.getStatus(searchParams as 'yard' | 'docks')
+  );
 
-  const fetchYard = async () => {
-    if (searchParams) {
-      const res = await useCases.getStatus(searchParams as 'yard' | 'docks');
-      setYardData(res);
-    }
-  };
+  if (isLoading) {
+    return <Loading />;
+  }
 
-  useEffect(() => {
-    fetchYard();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  return <YardTemplate data={yardData} />;
+  return <YardTemplate data={data || initialYardData} />;
 }
 
 export default Yard;

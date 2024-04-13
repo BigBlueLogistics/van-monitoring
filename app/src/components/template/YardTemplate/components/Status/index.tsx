@@ -1,8 +1,8 @@
 import Card from '@mui/material/Card';
 import MDBox from '@/components/atoms/MDBox';
 import MDTypography from '@/components/atoms/MDTypography';
+import Marquee from '@/components/molecules/Marquee';
 import SkeletonList from '@/components/organisms/Skeleton/List';
-import Marquee from '@/components/organisms/Marquee';
 import ItemStatus from './Item';
 import { TListStatus } from './types';
 
@@ -28,7 +28,7 @@ function Status({ title = '', data, status, message }: TListStatus) {
           {title}
         </MDTypography>
       </MDBox>
-      <MDBox pt={1} pb={2} px={2} minHeight={250}>
+      <MDBox pt={1} pb={2} px={2} height="100%">
         {status === 'loading' ? (
           <SkeletonList noOfItems={5} width="100%" height="98px" />
         ) : (

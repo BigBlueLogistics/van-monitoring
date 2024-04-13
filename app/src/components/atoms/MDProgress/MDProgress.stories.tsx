@@ -19,7 +19,7 @@ const meta = {
 } satisfies Meta<typeof MDProgress>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof MDProgress>;
 
 export const Progress: Story = {
   render: (args) => <MDProgress {...args} />,

@@ -1,0 +1,26 @@
+:root {
+  --vGap: 0%;
+}
+
+.marquee-container {
+  overflow: hidden;
+  height: 100%;
+}
+
+.marquee-inner {
+  animation: marquee linear infinite;
+}
+
+.marquee-inner:hover {
+  animation-play-state: paused;
+  cursor: pointer;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateY(var(--vGap));
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}

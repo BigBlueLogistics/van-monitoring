@@ -18,7 +18,7 @@ const meta = {
 } satisfies Meta<typeof MDAlert>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof MDAlert>;
 
 export const Alert: Story = {
   render: (args) => <MDAlert {...args} />,

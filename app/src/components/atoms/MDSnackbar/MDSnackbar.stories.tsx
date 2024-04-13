@@ -23,7 +23,7 @@ const meta = {
 } satisfies Meta<typeof MDSnackbar>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof MDSnackbar>;
 
 export const Snackbar: Story = {
   render: (args) => <MDSnackbar {...args} />,

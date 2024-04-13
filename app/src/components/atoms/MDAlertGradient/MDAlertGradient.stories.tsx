@@ -17,7 +17,7 @@ const meta = {
 } satisfies Meta<typeof MDAlertGradient>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof MDAlertGradient>;
 
 export const AlertGradient: Story = {
   render: (args) => <MDAlertGradient {...args} />,

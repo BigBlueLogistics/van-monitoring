@@ -103,7 +103,7 @@ function ItemStatus({ data, noGutter, darkMode }: TItemStatus) {
       p={1.2}
       mb={noGutter ? 0 : 1}
     >
-      <MDBox width="100%" display="flex" flexDirection="column">
+      <MDBox width={{ sm: '100%', md: '70%' }} display="flex" flexDirection="column">
         <MDBox
           display="flex"
           justifyContent="space-between"
@@ -180,11 +180,11 @@ function ItemStatus({ data, noGutter, darkMode }: TItemStatus) {
         </MDBox>
       </MDBox>
       <MDBox
-        width={{ xs: '100%', sm: '30%' }}
+        width={{ sm: '100%', md: '30%' }}
         height="100%"
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
+        // display="flex"
+        // justifyContent="space-between"
+        // alignItems="center"
         margin="auto 0"
       >
         <MDBox display="flex" alignItems="center" mt={{ xs: 2, sm: 0 }} ml={{ xs: -1.5, sm: 0 }}>

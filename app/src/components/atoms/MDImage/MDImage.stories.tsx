@@ -27,7 +27,7 @@ const meta = {
 } satisfies Meta<typeof MDImage>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof MDImage>;
 
 export const Image: Story = {
   render: (args) => <MDImage {...args} />,

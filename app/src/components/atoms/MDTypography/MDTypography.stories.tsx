@@ -22,7 +22,7 @@ const meta = {
 } satisfies Meta<typeof MDTypography>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof MDTypography>;
 
 export const Typography: Story = {
   render: (args) => <MDTypography {...args} />,

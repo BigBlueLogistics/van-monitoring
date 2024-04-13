@@ -19,7 +19,7 @@ const meta = {
 } satisfies Meta<typeof MDBadge>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof MDBadge>;
 
 export const Badge: Story = {
   render: (args) => <MDBadge {...args} />,

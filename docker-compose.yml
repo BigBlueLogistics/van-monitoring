@@ -1,0 +1,41 @@
+version: "3.9"
+
+networks:
+  bblc_van:
+    name: bblc_van_net
+
+services:
+  api:
+    build:
+      context: ./
+      dockerfile: ./.docker/php/Dockerfile
+    container_name: van_api
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    ports:
+      - "6100:8000"
+    volumes:
+      - ./api:/var/www/html
+      # - /var/www/html/vendor
+    networks:
+      - bblc_van
+    environment:
+      - TZ=Asia/Manila
+
+  app:
+    build:
+      context: ./
+      dockerfile: ./.docker/next/Dockerfile
+      target: app_dev
+    container_name: van_app
+    stdin_open: true
+    tty: true
+    ports:
+      - "6200:6200"
+    volumes:
+      - ./app:/var/www/html
+    depends_on:
+      - api
+    networks:
+      - bblc_van

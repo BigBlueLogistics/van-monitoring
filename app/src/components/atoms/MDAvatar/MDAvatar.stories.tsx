@@ -15,7 +15,7 @@ const meta = {
 } satisfies Meta<typeof MDAvatar>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof MDAvatar>;
 
 export const Avatar: Story = {
   render: (args) => <MDAvatar {...args} />,

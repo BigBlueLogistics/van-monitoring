@@ -16,7 +16,7 @@ const meta = {
 } satisfies Meta<typeof MDInput>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof MDInput>;
 
 export const Input: Story = {
   render: (args) => <MDInput {...args} />,

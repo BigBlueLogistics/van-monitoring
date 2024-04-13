@@ -17,7 +17,7 @@ const meta = {
 } satisfies Meta<typeof MDButton>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof MDButton>;
 
 export const Button: Story = {
   render: (args) => <MDButton {...args} />,

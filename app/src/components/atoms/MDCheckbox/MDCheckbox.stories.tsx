@@ -15,7 +15,7 @@ const meta = {
 } satisfies Meta<typeof MDCheckbox>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof MDCheckbox>;
 
 export const Checkbox: Story = {
   render: (args) => <MDCheckbox {...args} />,

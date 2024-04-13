@@ -22,7 +22,7 @@ const meta = {
 } satisfies Meta<typeof MDateRangePicker>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof MDateRangePicker>;
 
 export const DateRangePicker: Story = {
   render: (args) => <MDateRangePicker {...args} />,
