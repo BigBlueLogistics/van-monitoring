@@ -11,7 +11,7 @@ module.exports = {
     {
       name: 'next-prod',
       script: 'npm',
-      args: 'start',
+      args: 'run start',
       env: {
         PORT: 6210,
       },

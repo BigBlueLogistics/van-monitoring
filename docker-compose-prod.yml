@@ -47,7 +47,7 @@ services:
     stdin_open: true
     tty: true
     ports:
-      - "6200:6200"
+      - "6210:6210"
     volumes:
       - ./app:/var/www/html
     depends_on:
