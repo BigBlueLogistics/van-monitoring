@@ -4,7 +4,6 @@ import plugIcon from '@/assets/images/plug-icon.png';
 import MDBox from '@/components/atoms/MDBox';
 import MDTypography from '@/components/atoms/MDTypography';
 import { differenceInDays } from 'date-fns';
-// import Marquee from "react-fast-marquee";
 import { getValue, formatDate } from '@/utils';
 import { TItemStatus } from './types';
 

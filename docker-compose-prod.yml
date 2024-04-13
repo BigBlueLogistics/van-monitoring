@@ -8,7 +8,7 @@ networks:
 services:
   webserver:
     image: nginx
-    container_name: van_webserver
+    container_name: van_webserver_prd
     restart: unless-stopped
     tty: true
     ports:
@@ -25,7 +25,7 @@ services:
     build:
       context: ./
       dockerfile: ./.docker/php/Dockerfile
-    container_name: van_api
+    container_name: van_api_prd
     working_dir: /var/www/html
     restart: unless-stopped
     stdin_open: true
@@ -43,7 +43,7 @@ services:
       context: ./
       dockerfile: ./.docker/next/Dockerfile
       target: app_dev
-    container_name: van_app
+    container_name: van_app_prd
     stdin_open: true
     tty: true
     ports:
