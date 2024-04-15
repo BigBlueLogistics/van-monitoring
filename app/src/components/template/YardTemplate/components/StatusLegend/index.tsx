@@ -3,7 +3,14 @@ import MDTypography from '@/components/atoms/MDTypography';
 
 function StatusLegend() {
   return (
-    <MDBox display="flex" width="10%" justifyContent="space-evenly">
+    <MDBox
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      width="100%"
+      marginBottom="20px"
+      columnGap="20px"
+    >
       <MDBox
         sx={({ typography: { pxToRem } }) => ({
           width: pxToRem(25),
