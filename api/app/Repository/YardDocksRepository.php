@@ -26,6 +26,7 @@ class YardDocksRepository implements IYardDocks
             ->whereNotIn('vans.werks', ['BB01', 'BB02','BB04', 'BB05'])
             ->where('dcks.dknum', '>', 0)
             ->where('dcks.dknum', '<', 45)
+            ->orderBy('dcks.dknum', 'asc')
             ->get();
 
         // container yard 3
@@ -40,6 +41,7 @@ class YardDocksRepository implements IYardDocks
             ->whereNotIn('vans.werks', ['BB01', 'BB02','BB04', 'BB05'])
             ->where('dcks.dknum', '>', 44)
             ->where('dcks.dknum', '<', 73)
+            ->orderBy('dcks.dknum', 'asc')
             ->get();
 
         // container yard 4
@@ -54,6 +56,7 @@ class YardDocksRepository implements IYardDocks
             ->whereNotIn('vans.werks', ['BB01', 'BB02','BB04', 'BB05'])
             ->where('dcks.dknum', '>', 72)
             ->where('dcks.dknum', '<', 94)
+            ->orderBy('dcks.dknum', 'asc')
             ->get();
     
 
@@ -76,6 +79,7 @@ class YardDocksRepository implements IYardDocks
             ->leftJoin('DCKS', 'vans.vmrno', '=','dcks.vmrno')
             ->whereNull('vans.odatu')
             ->where('vans.werks', '=', 'BB05')
+            ->orderBy('dcks.dknum', 'asc')
             ->get();
 
         // BB08 Docks
@@ -88,6 +92,7 @@ class YardDocksRepository implements IYardDocks
             ->leftJoin('DCKS', 'vans.vmrno', '=','dcks.vmrno')
             ->whereNull('vans.odatu')
             ->where('vans.werks', '=', 'BB08')
+            ->orderBy('dcks.dknum', 'asc')
             ->get();
 
         return [
