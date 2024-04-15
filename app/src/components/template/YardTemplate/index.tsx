@@ -25,7 +25,7 @@ function YardTemplate({ data, location }: TYardTemplate) {
   return (
     <MDBox p={3}>
       <StatusLegend />
-      <Grid container spacing={3} height="100vh" overflow="hidden">
+      <Grid container spacing={3} height="100vh">
         {renderStatus()}
       </Grid>
     </MDBox>

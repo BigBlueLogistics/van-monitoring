@@ -1,8 +1,8 @@
 import { Tooltip } from '@mui/material';
-import Image from 'next/image';
 import plugIcon from '@/assets/images/plug-icon.png';
 import MDBox from '@/components/atoms/MDBox';
 import MDTypography from '@/components/atoms/MDTypography';
+import MDImage from '@/components/atoms/MDImage';
 import { differenceInDays } from 'date-fns';
 import { getValue, formatDate } from '@/utils';
 import { TItemStatus } from './types';
@@ -25,7 +25,7 @@ function ItemStatus({ data, noGutter, location }: TItemStatus) {
     if (pluggedstatus === 'PLUGGED-IN') {
       return (
         <Tooltip title={pluggedstatus} placement="top">
-          <Image src={plugIcon} width={200} height={120} alt="plug" />
+          <MDImage src={plugIcon} width={200} height={120} alt="plug" />
         </Tooltip>
       );
     }
@@ -35,15 +35,11 @@ function ItemStatus({ data, noGutter, location }: TItemStatus) {
 
   const whLoc = () => {
     if (location === 'yard') {
-      return ['TRUCK', 'YARD'].indexOf(location.toUpperCase()) > 0
-        ? 'CONTAINER / TRUCK YARD'
-        : `PARKING ${location}`;
+      return `PARKING ${dknum}`;
     }
 
     if (location) {
-      return ['TRUCK', 'YARD'].indexOf(location.toUpperCase()) > 0
-        ? 'CONTAINER / TRUCK YARD'
-        : `DOCK ${location}`;
+      return `DOCK ${dknum}`;
     }
     return null;
   };
@@ -198,7 +194,7 @@ function ItemStatus({ data, noGutter, location }: TItemStatus) {
           </MDTypography>
         </MDBox>
       </MDBox>
-      <MDBox width={{ sm: '100%', md: '40%' }} height="100%" margin="auto 0">
+      <MDBox width={{ sm: '100%', md: '30%' }} height="100%" margin="auto 0">
         <MDBox display="flex" alignItems="center" mt={{ xs: 2, sm: 0 }} ml={{ xs: -1.5, sm: 0 }}>
           {renderPluggedIcon(pluggedstatus)}
         </MDBox>
