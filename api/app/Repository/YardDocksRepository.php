@@ -20,7 +20,7 @@ class YardDocksRepository implements IYardDocks
                 vans.vtype AS type, vans.vsize AS size , UPPER(vans.pstat) AS pluggedStatus,
                 vans.adatu AS arrivalDate, vans.odatu AS outDate, vans.werks AS location,
                 vans.whdat AS whDate, vans.cstat AS currentStatus, vans.astat AS arrivalStatus,
-                vans.wschd AS whSchedule')
+                vans.wschd AS whSchedule, dcks.dknum')
             ->leftJoin('DCKS', 'vans.vmrno', '=','dcks.vmrno')
             ->whereNull('vans.odatu')
             ->whereNotIn('vans.werks', ['BB01', 'BB02','BB04', 'BB05'])
@@ -34,7 +34,7 @@ class YardDocksRepository implements IYardDocks
                 vans.vtype AS type, vans.vsize AS size , UPPER(vans.pstat) AS pluggedStatus,
                 vans.adatu AS arrivalDate, vans.odatu AS outDate, vans.werks AS location,
                 vans.whdat AS whDate, vans.cstat AS currentStatus, vans.astat AS arrivalStatus,
-                vans.wschd AS whSchedule')
+                vans.wschd AS whSchedule, dcks.dknum')
             ->leftJoin('DCKS', 'vans.vmrno', '=','dcks.vmrno')
             ->whereNull('vans.odatu')
             ->whereNotIn('vans.werks', ['BB01', 'BB02','BB04', 'BB05'])
@@ -48,7 +48,7 @@ class YardDocksRepository implements IYardDocks
                 vans.vtype AS type, vans.vsize AS size , UPPER(vans.pstat) AS pluggedStatus,
                 vans.adatu AS arrivalDate, vans.odatu AS outDate, vans.werks AS location,
                 vans.whdat AS whDate, vans.cstat AS currentStatus, vans.astat AS arrivalStatus,
-                vans.wschd AS whSchedule')
+                vans.wschd AS whSchedule, dcks.dknum')
             ->leftJoin('DCKS', 'vans.vmrno', '=','dcks.vmrno')
             ->whereNull('vans.odatu')
             ->whereNotIn('vans.werks', ['BB01', 'BB02','BB04', 'BB05'])
@@ -72,7 +72,7 @@ class YardDocksRepository implements IYardDocks
                 vans.vtype AS type, vans.vsize AS size , UPPER(vans.pstat) AS pluggedStatus,
                 vans.adatu AS arrivalDate, vans.odatu AS outDate, vans.werks AS location,
                 vans.whdat AS whDate, vans.cstat AS currentStatus, vans.astat AS arrivalStatus,
-                vans.wschd AS whSchedule')
+                vans.wschd AS whSchedule, dcks.dknum')
             ->leftJoin('DCKS', 'vans.vmrno', '=','dcks.vmrno')
             ->whereNull('vans.odatu')
             ->where('vans.werks', '=', 'BB05')
@@ -84,15 +84,15 @@ class YardDocksRepository implements IYardDocks
                 vans.vtype AS type, vans.vsize AS size , UPPER(vans.pstat) AS pluggedStatus,
                 vans.adatu AS arrivalDate, vans.odatu AS outDate, vans.werks AS location,
                 vans.whdat AS whDate, vans.cstat AS currentStatus, vans.astat AS arrivalStatus,
-                vans.wschd AS whSchedule')
+                vans.wschd AS whSchedule, dcks.dknum')
             ->leftJoin('DCKS', 'vans.vmrno', '=','dcks.vmrno')
             ->whereNull('vans.odatu')
             ->where('vans.werks', '=', 'BB08')
             ->get();
 
         return [
-            'dock5' => ['BB05 Docks', $dock5],
-            'dock8' => ['BB08 Docks', $dock8],
+            'dock5' => ['BB05 Docking Area', $dock5],
+            'dock8' => ['BB08 Docking Area', $dock8],
         ];
     
     }

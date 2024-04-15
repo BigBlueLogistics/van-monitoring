@@ -12,6 +12,7 @@ export type TrucksVansStatusDetailsEntity = {
   currentstatus: string;
   arrivalstatus: string;
   whschedule: string;
+  dknum: string;
 };
 
 export type TrucksVansStatusEntity = Record<string, [string, TrucksVansStatusDetailsEntity[]]>;

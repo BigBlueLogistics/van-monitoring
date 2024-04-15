@@ -2,4 +2,5 @@ import { ResponseTrucksVansStatusEntity } from '@/core/domain/entities/trucksVan
 
 export type TYardTemplate = {
   data: ResponseTrucksVansStatusEntity;
+  location: 'yard' | 'docks';
 };

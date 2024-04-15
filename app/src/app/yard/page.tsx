@@ -11,19 +11,16 @@ import initialData from './data';
 
 function Yard() {
   const { initialYardData } = initialData();
-  const searchParams = useSearchParams().get('location');
+  const searchParams = useSearchParams().get('location') as 'yard' | 'docks';
 
   const useCases = container.resolve<TrucksVansUseCases>(TrucksVansUseCases);
-  const { data, isLoading } = useSWR(
-    'yard',
-    async () => await useCases.getStatus(searchParams as 'yard' | 'docks')
-  );
+  const { data, isLoading } = useSWR('yard', async () => await useCases.getStatus(searchParams));
 
   if (isLoading) {
     return <Loading />;
   }
 
-  return <YardTemplate data={data || initialYardData} />;
+  return <YardTemplate data={data || initialYardData} location={searchParams} />;
 }
 
 export default Yard;

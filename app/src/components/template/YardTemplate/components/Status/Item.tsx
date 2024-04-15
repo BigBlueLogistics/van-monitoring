@@ -7,7 +7,7 @@ import { differenceInDays } from 'date-fns';
 import { getValue, formatDate } from '@/utils';
 import { TItemStatus } from './types';
 
-function ItemStatus({ data, noGutter, darkMode }: TItemStatus) {
+function ItemStatus({ data, noGutter, location }: TItemStatus) {
   const {
     vanno,
     vmrno,
@@ -15,17 +15,17 @@ function ItemStatus({ data, noGutter, darkMode }: TItemStatus) {
     size,
     arrivaldate,
     pluggedstatus,
-    location,
     currentstatus,
     arrivalstatus,
     whdate,
     whschedule,
+    dknum,
   } = data || {};
   const renderPluggedIcon = (pluggedstatus: string) => {
     if (pluggedstatus === 'PLUGGED-IN') {
       return (
         <Tooltip title={pluggedstatus} placement="top">
-          <Image src={plugIcon} width={70} height={40} alt="plug" />
+          <Image src={plugIcon} width={200} height={120} alt="plug" />
         </Tooltip>
       );
     }
@@ -33,11 +33,17 @@ function ItemStatus({ data, noGutter, darkMode }: TItemStatus) {
     return null;
   };
 
-  const whLoc = (location: string) => {
+  const whLoc = () => {
+    if (location === 'yard') {
+      return ['TRUCK', 'YARD'].indexOf(location.toUpperCase()) > 0
+        ? 'CONTAINER / TRUCK YARD'
+        : `PARKING ${location}`;
+    }
+
     if (location) {
       return ['TRUCK', 'YARD'].indexOf(location.toUpperCase()) > 0
         ? 'CONTAINER / TRUCK YARD'
-        : `WAREHOUSE ${location}`;
+        : `DOCK ${location}`;
     }
     return null;
   };
@@ -111,6 +117,7 @@ function ItemStatus({ data, noGutter, darkMode }: TItemStatus) {
           mb={0.2}
         >
           <MDTypography
+            fontSize={34}
             variant="button"
             fontWeight="medium"
             textTransform="capitalize"
@@ -120,10 +127,11 @@ function ItemStatus({ data, noGutter, darkMode }: TItemStatus) {
           </MDTypography>
         </MDBox>
         <MDBox mb={0.5} lineHeight={0} display="flex">
-          <MDTypography variant="caption" width="30%" color={statusColor().label}>
+          <MDTypography variant="caption" width="40%" color={statusColor().label} fontSize={18}>
             VMR:
           </MDTypography>
           <MDTypography
+            fontSize={18}
             component="span"
             variant="caption"
             fontWeight="medium"
@@ -134,24 +142,26 @@ function ItemStatus({ data, noGutter, darkMode }: TItemStatus) {
           </MDTypography>
         </MDBox>
         <MDBox mb={0.5} lineHeight={0} display="flex">
-          <MDTypography variant="caption" width="30%" color={statusColor().label}>
-            Location:
+          <MDTypography variant="caption" width="40%" color={statusColor().label} fontSize={18}>
+            Dock/Parking:
           </MDTypography>
           <MDTypography
+            fontSize={18}
             component="span"
             variant="caption"
             fontWeight="medium"
-            textTransform={location ? 'capitalize' : 'lowercase'}
+            textTransform={dknum ? 'capitalize' : 'lowercase'}
             color={statusColor().value}
           >
-            {getValue(whLoc(location), 'n/a')}
+            {getValue(whLoc(), 'n/a')}
           </MDTypography>
         </MDBox>
         <MDBox mb={0.5} lineHeight={0} display="flex">
-          <MDTypography variant="caption" width="30%" color={statusColor().label}>
+          <MDTypography variant="caption" width="40%" color={statusColor().label} fontSize={18}>
             Type / Size:
           </MDTypography>
           <MDTypography
+            fontSize={18}
             variant="caption"
             fontWeight="medium"
             textTransform="capitalize"
@@ -161,10 +171,15 @@ function ItemStatus({ data, noGutter, darkMode }: TItemStatus) {
           </MDTypography>
         </MDBox>
         <MDBox mb={0.5} lineHeight={0} display="flex">
-          <MDTypography variant="caption" width="30%" color={statusColor().label}>
+          <MDTypography variant="caption" width="40%" color={statusColor().label} fontSize={18}>
             Arrival:
           </MDTypography>
-          <MDTypography variant="caption" fontWeight="medium" color={statusColor().value}>
+          <MDTypography
+            variant="caption"
+            fontWeight="medium"
+            color={statusColor().value}
+            fontSize={18}
+          >
             {getValue(
               formatDate(arrivaldate, {
                 format: 'MM/dd/yyyy',
@@ -173,19 +188,17 @@ function ItemStatus({ data, noGutter, darkMode }: TItemStatus) {
             )}
           </MDTypography>
           &nbsp;
-          <MDTypography variant="caption" fontWeight="regular" color={statusColor().value}>
+          <MDTypography
+            variant="caption"
+            fontWeight="regular"
+            color={statusColor().value}
+            fontSize={18}
+          >
             ({ageFromArrivalDate(arrivaldate)} days(s))
           </MDTypography>
         </MDBox>
       </MDBox>
-      <MDBox
-        width={{ sm: '100%', md: '30%' }}
-        height="100%"
-        // display="flex"
-        // justifyContent="space-between"
-        // alignItems="center"
-        margin="auto 0"
-      >
+      <MDBox width={{ sm: '100%', md: '40%' }} height="100%" margin="auto 0">
         <MDBox display="flex" alignItems="center" mt={{ xs: 2, sm: 0 }} ml={{ xs: -1.5, sm: 0 }}>
           {renderPluggedIcon(pluggedstatus)}
         </MDBox>

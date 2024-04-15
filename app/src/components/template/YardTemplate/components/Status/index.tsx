@@ -6,15 +6,15 @@ import SkeletonList from '@/components/organisms/Skeleton/List';
 import ItemStatus from './Item';
 import { TListStatus } from './types';
 
-function Status({ title = '', data, status, message }: TListStatus) {
+function Status({ title = '', data, status, location }: TListStatus) {
   const renderItems = () => {
     if (data?.length) {
-      return data.map((item, idx) => <ItemStatus key={idx} data={item} />);
+      return data.map((item, idx) => <ItemStatus key={idx} data={item} location={location} />);
     }
 
     return (
       <MDBox component="div" display="flex" justifyContent="center" alignItems="center">
-        <MDTypography variant="body2" fontWeight="light" textAlign="center">
+        <MDTypography variant="body2" fontWeight="light" textAlign="center" fontSize={30}>
           No data available.
         </MDTypography>
       </MDBox>
@@ -24,7 +24,7 @@ function Status({ title = '', data, status, message }: TListStatus) {
   return (
     <Card sx={{ height: '100%' }}>
       <MDBox pt={3} px={2} display="inline-flex" justifyContent="space-between">
-        <MDTypography variant="h6" fontWeight="medium">
+        <MDTypography variant="h1" fontWeight="medium">
           {title}
         </MDTypography>
       </MDBox>

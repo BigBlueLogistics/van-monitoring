@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './style.css';
 import { TMarquee } from './types';
 
-function Marquee({ children, animationSpeed = 20 }: TMarquee) {
+function Marquee({ children, animationSpeed = 70 }: TMarquee) {
   useEffect(() => {
     // Access the root
     const root = document.querySelector<HTMLElement>(':root');
