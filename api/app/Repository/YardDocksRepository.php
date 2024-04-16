@@ -95,9 +95,21 @@ class YardDocksRepository implements IYardDocks
             ->orderBy('dcks.dknum', 'asc')
             ->get();
 
+        // Customer
+        $customer = DB::connection('wms')->table('BARRIER_USERS')
+            ->selectRaw('rfid_num, vehicle_type, plate_num, time_in, company')
+            ->whereNotNull('time_in')
+            ->whereNull('time_out')
+            ->where('depart', '=', '3rd-Party Trucks')
+            ->groupBy('rfid_num', 'vehicle_type', 'plate_num', 'time_in', 'company')
+            ->orderBy('time_in','desc')
+            ->get();
+
+
         return [
             'dock5' => ['BB05 Docking Area', $dock5],
             'dock8' => ['BB08 Docking Area', $dock8],
+            'customer' => ['Customer', $customer]
         ];
     
     }

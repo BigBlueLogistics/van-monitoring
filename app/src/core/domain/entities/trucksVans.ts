@@ -15,6 +15,17 @@ export type TrucksVansStatusDetailsEntity = {
   dknum: string;
 };
 
-export type TrucksVansStatusEntity = Record<string, [string, TrucksVansStatusDetailsEntity[]]>;
+export type CustomerVehicleEntity = {
+  rfid_num: string;
+  vehicle_type: string;
+  company: string;
+  plate_num: string;
+  time_in: string;
+};
+
+export type TrucksVansStatusEntity = Record<
+  string,
+  [string, TrucksVansStatusDetailsEntity[] | CustomerVehicleEntity[]]
+>;
 
 export type ResponseTrucksVansStatusEntity = TResponse<TrucksVansStatusEntity | null>;

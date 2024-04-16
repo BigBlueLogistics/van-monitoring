@@ -123,7 +123,7 @@ function ItemStatus({ data, noGutter, location }: TItemStatus) {
           </MDTypography>
         </MDBox>
         <MDBox mb={0.5} lineHeight={0} display="flex">
-          <MDTypography variant="caption" width="40%" color={statusColor().label} fontSize={18}>
+          <MDTypography variant="caption" minWidth="40%" color={statusColor().label} fontSize={18}>
             VMR:
           </MDTypography>
           <MDTypography
@@ -138,7 +138,7 @@ function ItemStatus({ data, noGutter, location }: TItemStatus) {
           </MDTypography>
         </MDBox>
         <MDBox mb={0.5} lineHeight={0} display="flex">
-          <MDTypography variant="caption" width="40%" color={statusColor().label} fontSize={18}>
+          <MDTypography variant="caption" minWidth="40%" color={statusColor().label} fontSize={18}>
             Dock/Parking:
           </MDTypography>
           <MDTypography
@@ -153,7 +153,7 @@ function ItemStatus({ data, noGutter, location }: TItemStatus) {
           </MDTypography>
         </MDBox>
         <MDBox mb={0.5} lineHeight={0} display="flex">
-          <MDTypography variant="caption" width="40%" color={statusColor().label} fontSize={18}>
+          <MDTypography variant="caption" minWidth="40%" color={statusColor().label} fontSize={18}>
             Type / Size:
           </MDTypography>
           <MDTypography
@@ -167,7 +167,7 @@ function ItemStatus({ data, noGutter, location }: TItemStatus) {
           </MDTypography>
         </MDBox>
         <MDBox mb={0.5} lineHeight={0} display="flex">
-          <MDTypography variant="caption" width="40%" color={statusColor().label} fontSize={18}>
+          <MDTypography variant="caption" minWidth="40%" color={statusColor().label} fontSize={18}>
             Arrival:
           </MDTypography>
           <MDTypography
@@ -190,7 +190,7 @@ function ItemStatus({ data, noGutter, location }: TItemStatus) {
             color={statusColor().value}
             fontSize={18}
           >
-            ({ageFromArrivalDate(arrivaldate)} days(s))
+            ({ageFromArrivalDate(arrivaldate)} days)
           </MDTypography>
         </MDBox>
       </MDBox>
