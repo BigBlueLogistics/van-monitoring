@@ -32,7 +32,7 @@ services:
     tty: true
     volumes:
       - ./api:/var/www/html
-      # - /var/www/html/vendor
+      - /var/www/html/vendor
     networks:
       - bblc_van
     environment:
@@ -50,6 +50,7 @@ services:
       - "6210:6210"
     volumes:
       - ./app:/var/www/html
+      - /var/www/html/node_modules
     depends_on:
       - api
     networks:

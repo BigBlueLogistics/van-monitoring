@@ -27,7 +27,6 @@
 
   "include": [
     "mui.d.ts",
-    "marquee.d.ts",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",

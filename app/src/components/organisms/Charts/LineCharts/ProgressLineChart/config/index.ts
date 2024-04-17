@@ -55,7 +55,7 @@ function configs(color: string, labels: any[], label: string, data: any[]) {
             color: '#9ca2b7',
             font: {
               size: 14,
-              weight: '300',
+              weight: 'lighter',
               family: 'Roboto',
               style: 'normal',
               lineHeight: 2,
@@ -79,7 +79,7 @@ function configs(color: string, labels: any[], label: string, data: any[]) {
             color: '#9ca2b7',
             font: {
               size: 14,
-              weight: '300',
+              weight: 'lighter',
               family: 'Roboto',
               style: 'normal',
               lineHeight: 2,

@@ -10,6 +10,7 @@ const config: StorybookConfig = {
     '@storybook/addon-links',
     '@storybook/addon-onboarding',
     '@storybook/addon-interactions',
+    '@chromatic-com/storybook'
   ],
   webpackFinal: async (config: Configuration) => {
     // Add path aliases
