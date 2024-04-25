@@ -9,4 +9,6 @@ interface IYardDocks
     public function getYardStatus();
 
     public function getDockStatus();
+
+    public function getVehicleStatus(string $location);
 }

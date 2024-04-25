@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Interfaces\IYardDocks;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Query\Builder;
 
 class YardDocksRepository implements IYardDocks
 {
@@ -58,12 +59,16 @@ class YardDocksRepository implements IYardDocks
             ->where('dcks.dknum', '<', 94)
             ->orderBy('dcks.dknum', 'asc')
             ->get();
+
+            // Vehicle status
+            $vehicle = $this->getVehicleStatus('yard');
     
 
         return [
             'yard1' => ['Container Yard 1 & 2', $yard12],
             'yard3' => ['Container Yard 3', $yard3],
             'yard4' => ['Container Yard 4', $yard4],
+            'vehicle' => ['Dock to Doors', $vehicle],
         ];
     }
 
@@ -105,12 +110,42 @@ class YardDocksRepository implements IYardDocks
             ->orderBy('time_in','desc')
             ->get();
 
+        // Vehicle status
+        $vehicle = $this->getVehicleStatus('docks');
 
         return [
             'dock5' => ['BB05 Docking Area', $dock5],
             'dock8' => ['BB08 Docking Area', $dock8],
-            'customer' => ['Customer', $customer]
+            'customer' => ['Customer', $customer],
+            'vehicle' => ['Shift to Yard', $vehicle],
         ];
     
+    }
+
+    public function getVehicleStatus($location)
+    {
+        $isYard = $location === "yard";
+
+        $vehicle = DB::connection('wms')->table('VANS')
+            ->selectRaw('vans.vnmbr AS vanNo, vans.vmrno, 
+                vans.vtype AS type, vans.vsize AS size , UPPER(vans.pstat) AS pluggedStatus,
+                vans.adatu AS arrivalDate, vans.odatu AS outDate, vans.werks AS location,
+                vans.whdat AS whDate, vans.cstat AS currentStatus, vans.astat AS arrivalStatus,
+                vans.wschd AS whSchedule, dcks.dknum')
+            ->join('DCKS', 'vans.vmrno', '=','dcks.vmrno')
+            ->whereNull('vans.odatu')
+            ->whereNotNull('vans.actrq')
+            ->when($isYard, function(Builder $query){
+                // Dock to Doors
+                $query->where('dcks.werks', '=', 'YARD');
+                
+            }, function(Builder $query){
+                // Shift to Yard
+                $query->where('dcks.werks', '!=', 'YARD');
+            })
+            ->orderBy('dcks.dknum', 'asc')
+            ->get();
+
+        return $vehicle;
     }
 }

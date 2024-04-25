@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\YardDocksRequest;
 use App\Traits\HttpResponse;
 use App\Interfaces\IYardDocks;
-
+use Exception;
 
 class YardDocksController extends Controller
 {
@@ -34,20 +33,20 @@ class YardDocksController extends Controller
     public function status(YardDocksRequest $request)
     {
         try {
-            $type = $request->input('type');
+            $location = $request->input('location');
             $res = null;
             
-            if($type === 'yard')
+            if($location === 'yard')
             {
                 $res = $this->yard->getYardStatus();
             }
 
-            if($type === 'docks')
+            if($location === 'docks')
             {
                 $res = $this->yard->getDockStatus();
             }
 
-            return $this->sendResponse($res);
+            return $this->sendResponse($res, 'yard and vans status');
         } catch (Exception $e) {
             return $this->sendError($e->getMessage());
         }

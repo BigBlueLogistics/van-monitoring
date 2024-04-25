@@ -113,7 +113,7 @@ function ItemStatus({ data, noGutter, location }: TItemStatus) {
           mb={0.2}
         >
           <MDTypography
-            fontSize={34}
+            sx={({ typography: { pxToRem } }) => ({ fontSize: pxToRem(34) })}
             variant="button"
             fontWeight="medium"
             textTransform="capitalize"
@@ -123,11 +123,16 @@ function ItemStatus({ data, noGutter, location }: TItemStatus) {
           </MDTypography>
         </MDBox>
         <MDBox mb={0.5} lineHeight={0} display="flex">
-          <MDTypography variant="caption" minWidth="40%" color={statusColor().label} fontSize={18}>
+          <MDTypography
+            variant="caption"
+            minWidth="40%"
+            color={statusColor().label}
+            sx={({ typography: { pxToRem } }) => ({ fontSize: pxToRem(18) })}
+          >
             VMR:
           </MDTypography>
           <MDTypography
-            fontSize={18}
+            sx={({ typography: { pxToRem } }) => ({ fontSize: pxToRem(18) })}
             component="span"
             variant="caption"
             fontWeight="medium"
@@ -138,11 +143,16 @@ function ItemStatus({ data, noGutter, location }: TItemStatus) {
           </MDTypography>
         </MDBox>
         <MDBox mb={0.5} lineHeight={0} display="flex">
-          <MDTypography variant="caption" minWidth="40%" color={statusColor().label} fontSize={18}>
+          <MDTypography
+            variant="caption"
+            minWidth="40%"
+            color={statusColor().label}
+            sx={({ typography: { pxToRem } }) => ({ fontSize: pxToRem(18) })}
+          >
             Dock/Parking:
           </MDTypography>
           <MDTypography
-            fontSize={18}
+            sx={({ typography: { pxToRem } }) => ({ fontSize: pxToRem(18) })}
             component="span"
             variant="caption"
             fontWeight="medium"
@@ -153,11 +163,16 @@ function ItemStatus({ data, noGutter, location }: TItemStatus) {
           </MDTypography>
         </MDBox>
         <MDBox mb={0.5} lineHeight={0} display="flex">
-          <MDTypography variant="caption" minWidth="40%" color={statusColor().label} fontSize={18}>
+          <MDTypography
+            variant="caption"
+            minWidth="40%"
+            color={statusColor().label}
+            sx={({ typography: { pxToRem } }) => ({ fontSize: pxToRem(18) })}
+          >
             Type / Size:
           </MDTypography>
           <MDTypography
-            fontSize={18}
+            sx={({ typography: { pxToRem } }) => ({ fontSize: pxToRem(18) })}
             variant="caption"
             fontWeight="medium"
             textTransform="capitalize"
@@ -167,14 +182,19 @@ function ItemStatus({ data, noGutter, location }: TItemStatus) {
           </MDTypography>
         </MDBox>
         <MDBox mb={0.5} lineHeight={0} display="flex">
-          <MDTypography variant="caption" minWidth="40%" color={statusColor().label} fontSize={18}>
+          <MDTypography
+            variant="caption"
+            minWidth="40%"
+            color={statusColor().label}
+            sx={({ typography: { pxToRem } }) => ({ fontSize: pxToRem(18) })}
+          >
             Arrival:
           </MDTypography>
           <MDTypography
             variant="caption"
             fontWeight="medium"
             color={statusColor().value}
-            fontSize={18}
+            sx={({ typography: { pxToRem } }) => ({ fontSize: pxToRem(18) })}
           >
             {getValue(
               formatDate(arrivaldate, {
@@ -188,7 +208,7 @@ function ItemStatus({ data, noGutter, location }: TItemStatus) {
             variant="caption"
             fontWeight="regular"
             color={statusColor().value}
-            fontSize={18}
+            sx={({ typography: { pxToRem } }) => ({ fontSize: pxToRem(18) })}
           >
             ({ageFromArrivalDate(arrivaldate)} days)
           </MDTypography>

@@ -6,6 +6,7 @@ import useSWR from 'swr';
 import { container } from '@/core/dependencies';
 import TrucksVansUseCases from '@/core/usecases/truckVans';
 import Loading from '@/components/molecules/Loading';
+import Error from '@/components/molecules/Error';
 import YardTemplate from '@/components/template/YardTemplate';
 import initialData from './data';
 
@@ -14,13 +15,23 @@ function Yard() {
   const searchParams = useSearchParams().get('location') as 'yard' | 'docks';
 
   const useCases = container.resolve<TrucksVansUseCases>(TrucksVansUseCases);
-  const { data, isLoading } = useSWR('yard', async () => await useCases.getStatus(searchParams));
+  const {
+    data: yardDataStatus,
+    isLoading: isLoadingYard,
+    error,
+  } = useSWR('yard-status', async () => await useCases.getStatus(searchParams));
 
-  if (isLoading) {
+  if (isLoadingYard) {
     return <Loading />;
   }
 
-  return <YardTemplate data={data || initialYardData} location={searchParams} />;
+  if (error) {
+    return <Error />;
+  }
+
+  return (
+    <YardTemplate yardStatusData={yardDataStatus || initialYardData} location={searchParams} />
+  );
 }
 
 export default Yard;

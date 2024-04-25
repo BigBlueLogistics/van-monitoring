@@ -23,9 +23,17 @@ export type CustomerVehicleEntity = {
   time_in: string;
 };
 
+export type VehicleStatusEntity = {
+  movement_type: string;
+  date_time: string;
+  name: string;
+  dock_no: string;
+};
+
 export type TrucksVansStatusEntity = Record<
   string,
   [string, TrucksVansStatusDetailsEntity[] | CustomerVehicleEntity[]]
 >;
 
-export type ResponseTrucksVansStatusEntity = TResponse<TrucksVansStatusEntity | null>;
+export type ResponseTrucksVansStatusEntity = TResponse<TrucksVansStatusEntity>;
+export type ResponseVehicleStatusEntity = TResponse<VehicleStatusEntity[]>;

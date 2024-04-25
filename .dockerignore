@@ -1,0 +1,9 @@
+.git
+devspace.yaml
+.DS_Store
+
+.dockerignore
+
+.next
+.docker
+.vscode

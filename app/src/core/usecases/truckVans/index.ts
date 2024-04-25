@@ -6,9 +6,11 @@ class TrucksVansUseCases {
   constructor(@inject('TruckVansRepositoryImpl') private truckVansRepo: ITruckVansRepository) {}
 
   async getStatus(location: 'yard' | 'docks') {
-    const res = await this.truckVansRepo.getStatus(location);
+    return (await this.truckVansRepo.getStatus(location)).data;
+  }
 
-    return res.data;
+  async getVehicleStatus(location: 'yard' | 'docks') {
+    return (await this.truckVansRepo.getVehicleStatus(location)).data;
   }
 }
 

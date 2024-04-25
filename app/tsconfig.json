@@ -27,6 +27,7 @@
 
   "include": [
     "mui.d.ts",
+    "assets.d.ts",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",

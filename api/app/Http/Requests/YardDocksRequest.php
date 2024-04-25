@@ -23,7 +23,7 @@ class YardDocksRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'type' => ['required', 'string', Rule::in(['yard','docks'])]
+            'location' => ['required', 'string', Rule::in(['yard','docks'])]
         ];
     }
 }

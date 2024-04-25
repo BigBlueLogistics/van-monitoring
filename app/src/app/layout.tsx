@@ -5,6 +5,7 @@ import { MaterialUIControllerProvider } from '@/context';
 import { SWRProvider } from '@/components/molecules/SWRProvider';
 import ThemeRegistry from '@/components/organisms/ThemeRegistry/ThemeRegistry';
 import '@/core/dependencies';
+import './style.css';
 
 const inter = Roboto({
   subsets: ['latin'],
