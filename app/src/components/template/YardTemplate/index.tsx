@@ -89,7 +89,7 @@ function YardTemplate({ yardStatusData, location }: TYardTemplate) {
     <>
       <ModalNotification
         data={vehicleStatusList}
-        open={true}
+        open={open}
         location={location}
         countdown={countToShowModal - count}
         onClose={onCloseModal}
