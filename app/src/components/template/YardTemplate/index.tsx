@@ -69,7 +69,6 @@ function YardTemplate({ yardStatusData, location }: TYardTemplate) {
   };
 
   useEffect(() => {
-    console.log('vehicle data', vehicleStatusList[1]);
     if (vehicleStatusList[1]?.length) {
       if (showModalNotification && count === countToShowModal) {
         onCloseModal();
@@ -82,6 +81,7 @@ function YardTemplate({ yardStatusData, location }: TYardTemplate) {
       }
     } else {
       onCloseModal();
+      resetCount();
     }
   }, [count, resetCount, showModalNotification, vehicleStatusList]);
 
