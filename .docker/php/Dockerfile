@@ -49,5 +49,7 @@ RUN composer install --ignore-platform-reqs
 # clean up
 RUN	apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
+RUN chmod g+w -R storage/
+
 EXPOSE 9000
 CMD ["php-fpm"]
